@@ -1,0 +1,50 @@
+{
+  "week": 46,
+  "year": 2026,
+  "label": "Week 46 · 9 – 15 nov 2026",
+  "figs": {},
+  "figmap": [],
+  "days": [
+    {
+      "id": "ma", "weekday": 1, "label": "Maandag", "sub": "Eén stang · EMOM",
+      "name": "Maandag · Eén stang",
+      "focus": "Barbell complex als hoofdgerecht + EMOM met negatieven en burpees",
+      "gear": ["Barbell (stang 20 kg)", "Schijven: 2× 5 · 2× 2,5 · 2× 1,25 kg", "Pull-up bar + opstapje", "Dun elastiek voor de warming-up"],
+      "blocks": [
+        { "phase": "Warming-up", "type": "intervals", "title": "Schouders open, stang wakker", "rounds": 6, "work": 40, "rest": 15,
+          "workLabel": "Bewegen", "restLabel": "Wissel",
+          "note": "Geen roeier vandaag. De laatste twee rondes zijn alvast het complex met lege stang.",
+          "items": ["Dead hang, schouders los", "Kat-koe op handen en knieën", "Elastiek doorhalen over je hoofd", "Squat-zit, ellebogen tegen de knieën", "Lege stang: 5 deadlifts + 5 hang cleans", "Lege stang: 5 front squats + 5 push presses"] },
+        { "phase": "Hoofddeel", "type": "sets", "key": "complex", "title": "Complex · 5 rondes", "rest": 120, "log": true,
+          "note": "Elke ronde (4×4 reps) achter elkaar, stang niet neerleggen: 4 deadlifts → 4 hang power cleans → 4 front squats → 4 push presses. Laden per kant: 25 = 2,5 · 27,5 = 2,5 + 1,25 · 30 = 5 · 32,5 = 5 + 1,25.",
+          "sets": [ {"l": "Ronde 1", "r": "4×4", "kg": 25}, {"l": "Ronde 2", "r": "4×4", "kg": 27.5}, {"l": "Ronde 3", "r": "4×4", "kg": 30}, {"l": "Ronde 4", "r": "4×4", "kg": 30}, {"l": "Ronde 5", "r": "4×4", "kg": 32.5} ] },
+        { "phase": "Metcon", "type": "emom", "title": "EMOM 12", "minutes": 12,
+          "note": "Elke minuut op de piep beginnen; wat overblijft is rust. Stang blijft op 32,5 kg liggen.",
+          "stations": ["4 negatieve pull-ups · 4 tellen zakken", "8 burpees over de stang", "12 deadlifts · 32,5 kg"] },
+        { "phase": "Cooldown", "type": "intervals", "title": "Borst en heupen", "rounds": 5, "work": 45, "rest": 10,
+          "workLabel": "Rekken", "restLabel": "Wissel", "note": "Rustig ademen, niets forceren.",
+          "items": ["Deurpost-rek links", "Deurpost-rek rechts", "90/90-zit links", "90/90-zit rechts", "Hamstring voorover"] }
+      ]
+    },
+    {
+      "id": "wo", "weekday": 3, "label": "Woensdag", "sub": "Waslijst · chipper",
+      "name": "Woensdag · De waslijst",
+      "focus": "Deadlift terug op 50 kg + chipper for time",
+      "gear": ["Barbell (stang 20 kg)", "Schijven: 2× 10 · 2× 5 · 2× 2,5 kg", "Roeier", "Wall ball 9 kg"],
+      "blocks": [
+        { "phase": "Warming-up", "type": "intervals", "title": "Heupen los", "rounds": 6, "work": 45, "rest": 15,
+          "workLabel": "Bewegen", "restLabel": "Wissel", "note": "Eén minuutje roeien en dan vooral de heupen openmaken.",
+          "items": ["Roeien, rustig opbouwen", "Heupbuiger links", "Heupbuiger rechts", "Kikker-houding, rustig heen en weer", "Wall ball: squat + press zonder worp", "Lege stang: 8 deadlifts, rug plat"] },
+        { "phase": "Hoofddeel", "type": "sets", "key": "deadlift", "title": "Deadlift · opbouwen naar 3×5", "rest": 90, "log": true,
+          "note": "Laatst teruggemeld: 5×5 op 45 kg (week 43). Nu zwaarder, minder sets. Laden per kant: 40 = 10 · 45 = 10 + 2,5 · 50 = 10 + 5.",
+          "sets": [ {"l": "Set 1", "r": "5", "kg": 40}, {"l": "Set 2", "r": "5", "kg": 45}, {"l": "Set 3", "r": "5", "kg": 50}, {"l": "Set 4", "r": "5", "kg": 50}, {"l": "Set 5", "r": "5", "kg": 50} ] },
+        { "phase": "Metcon", "type": "fortime", "title": "De waslijst · for time", "cap": 18,
+          "note": "Haal de 5-jes van de stang (40 kg) en werk de lijst van boven naar beneden af. Tik op Klaar als je laatste meter erop zit.",
+          "moves": [["Roeien", "1000 m"], ["Wall balls · 9 kg", "40"], ["Deadlifts · 40 kg", "20"], ["Burpees over de stang", "15"], ["Roeien", "500 m"]] },
+        { "phase": "Cooldown", "type": "intervals", "title": "Vloer en rust", "rounds": 5, "work": 50, "rest": 10,
+          "workLabel": "Rekken", "restLabel": "Wissel", "note": "Liggen mag. Lang uitademen.",
+          "items": ["Vlinder, knieën laten zakken", "Duif links", "Duif rechts", "Open boek links", "Open boek rechts"] }
+      ]
+    }
+  ]
+}

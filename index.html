@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="nl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0f1316">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Timer">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" href="icon-192.png">
+<title>Trainingstimer</title>
+<link rel="stylesheet" href="app.css">
+</head><body>
+<div class="app" id="app">
+  <div class="top">
+    <div class="brand">Trainingstimer<small id="weeklbl">Laden…</small></div>
+    <div class="tot"><span>Totaal</span><b id="total">0:00</b></div>
+  </div>
+  <div class="hint" id="hint" hidden></div>
+  <div class="days" id="days" role="group" aria-label="Kies dag"></div>
+  <div id="gear"></div>
+  <div class="prog" id="prog" aria-label="Voortgang sessie"></div>
+  <div class="proglabel"><span id="progtxt"></span><span id="progpct"></span></div>
+  <div id="card"></div>
+  <div class="foot">
+    <button class="ghost" id="snd" type="button">Geluid: aan</button>
+    <button class="ghost" id="logb" type="button">Logboek</button>
+    <button class="ghost" id="resetall" type="button">Dag resetten</button>
+  </div>
+</div>
+
+<div class="bar" id="bar"><div class="in">
+  <button class="nav" id="prev" type="button">‹ Vorige</button>
+  <button class="go" id="go" type="button">Start</button>
+  <button class="nav" id="next" type="button">Volgende ›</button>
+</div></div>
+
+<script src="figures.js"></script>
+<script src="app.js"></script>
+</body></html>
