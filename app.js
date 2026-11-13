@@ -555,11 +555,32 @@ function bindLog() {
   $("card").querySelectorAll("[data-lg]").forEach(el => el.onclick = () => { const i = +el.dataset.lg; copyOrShare(list[i].text, $("lg" + i), $("lt" + i), false); });
 }
 
+/* ===== App-update: een app op het beginscherm wordt hervat, niet herladen. Draait er na een update nog oude code,
+   dan herlaadt de pagina zichzelf bij het terugkomen — alleen als er geen timer loopt; de sessie is bewaard. ===== */
+const APP_FILES = ["index.html", "app.js", "app.css", "figures.js"];
+let appSig = null;
+async function appSignature() {
+  if (window.__PLAN__) return null;
+  try {
+    const txt = await Promise.all(APP_FILES.map(f => fetch(f + "?t=" + now(), {cache: "no-store"}).then(r => r.ok ? r.text() : Promise.reject())));
+    return txt.map(x => { let h = 5381; for (let i = 0; i < x.length; i++) h = ((h << 5) + h + x.charCodeAt(i)) | 0; return x.length + ":" + h; }).join("|");
+  } catch (e) { return null; }
+}
+async function checkAppUpdate() {
+  const sig = await appSignature();
+  if (!sig || !appSig || sig === appSig || anyRunning()) return false;
+  let seen = null; try { seen = sessionStorage.getItem("tt-reload"); } catch (e) {}
+  if (seen === sig) return false;                                // nooit twee keer herladen voor dezelfde versie
+  try { sessionStorage.setItem("tt-reload", sig); } catch (e) { return false; }
+  persist(); location.reload(); return true;
+}
+
 /* ===== Levensloop van de pagina ===== */
 document.addEventListener("visibilitychange", async () => {
   if (document.visibilityState === "hidden") { persist(); return; }
   if (ac && ac.state !== "running") { try { ac.resume(); } catch (e) {} }
   if (anyRunning()) { keepAwake(); tick(true); return; }
+  if (await checkAppUpdate()) return;
   const p = await fetchPlan();                                   // nieuw weekschema binnen? Alleen wisselen als er niets loopt.
   if (p && planId(p) !== PID && !anyRunning()) usePlan(p);
 });
@@ -581,5 +602,6 @@ function installHint() {
     return;
   }
   usePlan(p); installHint();
+  appSignature().then(sig => { appSig = sig; });
   if ("serviceWorker" in navigator && location.protocol === "https:" && !window.__PLAN__) navigator.serviceWorker.register("sw.js").catch(() => {});
 })();
